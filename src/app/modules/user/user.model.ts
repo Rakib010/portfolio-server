@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IUser, Role } from './user.interface';
+import { IUser } from './user.interface';
 
 
 const userSchema = new Schema<IUser>({
@@ -8,9 +8,9 @@ const userSchema = new Schema<IUser>({
     password: { type: String, required: true },
     role: {
         type: String,
-        enum: Object.values(Role),
-        required: true,
-    },
+        enum: ["ADMIN"],
+        default: "ADMIN"
+    }
 }, {
     versionKey: false,
     timestamps: true

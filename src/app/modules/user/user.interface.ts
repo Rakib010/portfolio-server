@@ -1,12 +1,13 @@
 
 export enum Role {
-    ADMIN = "ADMIN",
+    ADMIN = "ADMIN"
 }
+
 export interface IUser {
     _id: string
     name: string;
     email: string;
     password: string;
-    role: Role;
+    role: string;
     createdAt?: Date;
 }
