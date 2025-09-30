@@ -23,17 +23,13 @@ export const checkAuth = (...authRoles: string[]) =>
                 throw new AppError(400, "user does not exist")
             }
 
-            /*   if (isUserExits.isActive === IsActive.BLOCKED || isUserExits.isActive === IsActive.INACTIVE) {
-                  throw new AppError(httpStatus.BAD_REQUEST,
-                      `user is ${isUserExits.isActive}`)
-              } */
-
 
             if (!authRoles.includes(verifiedToken.role)) {
                 throw new AppError(403, "You are not permitted to view this route!!!")
             }
 
             req.user = verifiedToken
+            //console.log("token", verifiedToken)
             next()
 
         } catch (error) {

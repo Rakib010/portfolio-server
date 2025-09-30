@@ -1,12 +1,35 @@
-import { IBlog } from "./blog.interface"
-import { Blog } from "./blog.model"
+import { IBlog } from "./blog.interface";
+import { Blog } from "./blog.model";
 
+// Create blog
+const createBlog = async (payload: Partial<IBlog>) => {
+    return await Blog.create(payload);
+};
 
-export const createBlog = async (payload: Partial<IBlog>) => {
-    const blog = await Blog.create(payload)
-    return blog
-}
+// Get all blogs
+const getAllBlog = async () => {
+    return await Blog.find();
+};
+
+// Get blog by ID
+const getBlogById = async (id: string) => {
+    return await Blog.findById(id);
+};
+
+// Update blog
+const updateBlog = async (id: string, payload: Partial<IBlog>) => {
+    return await Blog.findByIdAndUpdate(id, payload, { new: true });
+};
+
+// Delete blog
+const deleteBlog = async (id: string) => {
+    return await Blog.findByIdAndDelete(id);
+};
 
 export const BlogService = {
-    createBlog
-}
+    createBlog,
+    getAllBlog,
+    getBlogById,
+    updateBlog,
+    deleteBlog,
+};

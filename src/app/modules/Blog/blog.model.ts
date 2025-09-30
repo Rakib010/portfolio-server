@@ -6,9 +6,9 @@ const blogSchema = new Schema<IBlog>({
     title: { type: String, required: true },
     content: { type: String, required: true },
     thumbnail: { type: String },
-    slug: { type: String, required: true, unique: true },
     tags: { type: [String], default: [] },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 
 

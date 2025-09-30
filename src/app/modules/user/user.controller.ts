@@ -14,7 +14,20 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const aboutSection = catchAsync(async (req: Request, res: Response) => {
+    const user = await userServices.aboutSection(req.body)
+    sendResponse(res, {
+        success: true,
+        statusCode: 201,
+        message: "About Created Successfully",
+        data: user
+    })
+})
+
+
+
 
 export const userController = {
-    createUser
+    createUser,
+    aboutSection
 }

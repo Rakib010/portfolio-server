@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { envVars } from "../../config/env"
 import AppError from "../../errorHelpers/AppError"
+import { About} from "../about/about.model"
 import { IUser } from "./user.interface"
 import { User } from "./user.model"
 import bcrypt from "bcryptjs"
@@ -24,6 +26,16 @@ const createUser = async (payload: Partial<IUser>) => {
     return user
 }
 
+const aboutSection = async (payload: any) => {
+
+    const about = await About.create(payload)
+    return about
+}
+
+
+
 export const userServices = {
-    createUser
+    createUser,
+    aboutSection,
+
 }
