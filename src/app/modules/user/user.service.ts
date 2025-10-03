@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { envVars } from "../../config/env"
 import AppError from "../../errorHelpers/AppError"
-import { About} from "../about/about.model"
+import { About } from "../about/about.model"
 import { IUser } from "./user.interface"
 import { User } from "./user.model"
 import bcrypt from "bcryptjs"
@@ -27,8 +27,12 @@ const createUser = async (payload: Partial<IUser>) => {
 }
 
 const aboutSection = async (payload: any) => {
-
     const about = await About.create(payload)
+    return about
+}
+
+const getAbout = async () => {
+    const about = await About.find()
     return about
 }
 
@@ -37,5 +41,6 @@ const aboutSection = async (payload: any) => {
 export const userServices = {
     createUser,
     aboutSection,
+    getAbout
 
 }
