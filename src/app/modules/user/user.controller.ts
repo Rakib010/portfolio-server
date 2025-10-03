@@ -24,11 +24,11 @@ const aboutSection = catchAsync(async (req: Request, res: Response) => {
     })
 })
 const getAbout = catchAsync(async (req: Request, res: Response) => {
-    const user = await userServices.aboutSection(req.body)
+    const user = await userServices.getAbout()
     sendResponse(res, {
         success: true,
         statusCode: 201,
-        message: "About Created Successfully",
+        message: "About data get Successfully",
         data: user
     })
 })

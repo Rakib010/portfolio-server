@@ -10,7 +10,6 @@ const aboutSchema = new Schema<IAbout>(
         location: { type: String, required: true },
         profileImage: { type: String },
         skills: { type: [String], default: [] },
-
     },
     {
         timestamps: true,
