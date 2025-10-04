@@ -1,5 +1,5 @@
 import AppError from "../../errorHelpers/AppError"
-import { createAccessTokenWithRefreshToken, createUserToken } from "../../utils/userToken"
+import { createAccessTokenWithRefreshToken } from "../../utils/userToken"
 import { IUser } from "../user/user.interface"
 import { User } from "../user/user.model"
 import bcrypt from "bcryptjs"
@@ -20,11 +20,11 @@ const login = async (payload: Partial<IUser>) => {
     }
 
     // user token 
-    const userToken = createUserToken(user)
+    // const userToken = createUserToken(user)
 
     return {
-        accessToken: userToken.accessToken,
-        refreshToken: userToken.refreshToken,
+        /* accessToken: userToken.accessToken,
+        refreshToken: userToken.refreshToken, */
         user: user
     }
 }

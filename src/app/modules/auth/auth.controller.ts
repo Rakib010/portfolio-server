@@ -10,7 +10,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
 
     const logInfo = await AuthService.login(req.body)
 
-    setAuthCookie(res, logInfo)
+    // setAuthCookie(res, logInfo)
 
     sendResponse(res, {
         success: true,
@@ -46,8 +46,8 @@ const refreshAccessToken = catchAsync(async (req: Request, res: Response) => {
 
 const accessTokenLogout = catchAsync(async (req: Request, res: Response) => {
 
-    res.clearCookie("accessToken");
-    res.clearCookie("refreshToken");
+    // res.clearCookie("accessToken");
+    //res.clearCookie("refreshToken");
 
     sendResponse(res, {
         success: true,
